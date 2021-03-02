@@ -250,7 +250,7 @@ IF(WIN32)
    SET(BUILD_SHARED_LIBS OFF)
 ENDIF(WIN32)
 
-OPTION(BUILD_EXAMPLES "Build the Examples directory." ON)
+OPTION(BUILD_EXAMPLES "Build the Examples directory." OFF)
 
 OPTION(ITK_USE_SYSTEM_VXL "Use an outside build of VXL." OFF)
 MARK_AS_ADVANCED(ITK_USE_SYSTEM_VXL)
@@ -507,22 +507,25 @@ INCLUDE_DIRECTORIES(
 # if GDCM was build with VTK support, including it will bring the VTK
 # include paths as well, and the wrong DICOMParser will be picked.
 
-OPTION(ITK_USE_SYSTEM_GDCM "Use an outside build of GDCM." OFF)
-MARK_AS_ADVANCED(ITK_USE_SYSTEM_GDCM)
-IF(ITK_USE_SYSTEM_GDCM)
-  FIND_PACKAGE(GDCM)
-  IF(GDCM_FOUND)
-    INCLUDE(${GDCM_USE_FILE})
-    SET(ITK_GDCM_LIBRARIES gdcm)
-  ELSE(GDCM_FOUND)
-    MESSAGE(FATAL_ERROR "Must set GDCM_DIR for ITK_USE_SYSTEM_GDCM.")
-  ENDIF(GDCM_FOUND)
-ELSE(ITK_USE_SYSTEM_GDCM)
-  SET(ITK_GDCM_LIBRARIES itkgdcm)
-  SET(GDCM_INCLUDE_DIR
-    ${ITK_SOURCE_DIR}/Utilities/gdcm/src
-    )
-ENDIF(ITK_USE_SYSTEM_GDCM)
+
+### commented to avoid conflicts with GDCM 2.0.10 ###
+#OPTION(ITK_USE_SYSTEM_GDCM "Use an outside build of GDCM." ON)
+#MARK_AS_ADVANCED(ITK_USE_SYSTEM_GDCM)
+#IF(ITK_USE_SYSTEM_GDCM)
+#  FIND_PACKAGE(GDCM)
+#  IF(GDCM_FOUND)
+#    INCLUDE(${GDCM_USE_FILE})
+#    SET(ITK_GDCM_LIBRARIES gdcm)
+#  ELSE(GDCM_FOUND)
+#    MESSAGE(FATAL_ERROR "Must set GDCM_DIR for ITK_USE_SYSTEM_GDCM.")
+#  ENDIF(GDCM_FOUND)
+#ELSE(ITK_USE_SYSTEM_GDCM)
+  #SET(ITK_GDCM_LIBRARIES itkgdcm)
+  #SET(GDCM_INCLUDE_DIR
+   # ${ITK_SOURCE_DIR}/Utilities/gdcm/src
+   # )
+#ENDIF(ITK_USE_SYSTEM_GDCM)
+###-------------------------------------###
 
 #-----------------------------------------------------------------------------
 # Help other projects use ITK.
@@ -578,4 +581,5 @@ IF(CMAKE_COMPILER_IS_GNUCXX)
   ENDFOREACH(COMP_OPTION)
 ENDIF(CMAKE_COMPILER_IS_GNUCXX)
 
-
+# to enable compilation from MAF project
+BUILD_COMMAND( MAKECOMMAND ${CMAKE_MAKE_PROGRAM} )

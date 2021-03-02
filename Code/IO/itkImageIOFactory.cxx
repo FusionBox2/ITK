@@ -21,7 +21,9 @@
 #include "itkImageIOFactory.h"
 #include "itkBioRadImageIOFactory.h"
 #include "itkBMPImageIOFactory.h"
-#include "itkGDCMImageIOFactory.h"
+//--- commented to avoid conflicts with GDCM 2.0.10 ---###
+//#include "itkGDCMImageIOFactory.h"
+//----------------------------------------------------///
 #include "itkDICOMImageIO2Factory.h"
 #include "itkNiftiImageIOFactory.h"
 #include "itkAnalyzeImageIOFactory.h"
@@ -100,7 +102,9 @@ ImageIOFactory::RegisterBuiltInFactories()
   if( firstTime )
     {
     ObjectFactoryBase::RegisterFactory( BioRadImageIOFactory::New() );
-    ObjectFactoryBase::RegisterFactory( GDCMImageIOFactory::New() );
+    //--- commented to avoid conflicts with GDCM 2.0.10 ---###
+    //ObjectFactoryBase::RegisterFactory( GDCMImageIOFactory::New() );
+    //-----------------------------------------------------//
     ObjectFactoryBase::RegisterFactory( MetaImageIOFactory::New() );
     ObjectFactoryBase::RegisterFactory( PNGImageIOFactory::New() );
     ObjectFactoryBase::RegisterFactory( VTKImageIOFactory::New() );

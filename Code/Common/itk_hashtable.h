@@ -440,7 +440,10 @@ public:
 
   //  friend IUEi_STL_INLINE bool operator== VCL_NULL_TMPL_ARGS (const
   //  self&,const self&);
+#if !defined(_MSC_VER) || _MSC_VER < 1600
   friend bool operator== VCL_NULL_TMPL_ARGS (const self&,const self&);
+#endif
+		
 public:
 
   size_type bucket_count() const { return this->buckets.size(); }
@@ -1040,6 +1043,7 @@ void hashtable_base<Value, Alloc>::copy_from(const hashtable_base<Value, Alloc>&
 // A few compatability fixes.  Placed here for automatic include in
 // both the hash_set and the hash_map sources.
 # if defined(VCL_SUNPRO_CC) || defined (_MSC_VER) || defined(__BORLANDC__) || ((defined(__ICC)||defined(__ECC)) && defined(linux))
+#if !defined(_MSC_VER) || _MSC_VER < 1600
 namespace std 
 {
 template <class T>
@@ -1048,6 +1052,7 @@ public:
   const T& operator()(const T& x) const { return x; }
 };
 }
+#endif
 
 template <class _Pair>
 struct itk_Select1st : public std::unary_function<_Pair, typename _Pair::first_type> {

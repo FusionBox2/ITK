@@ -167,8 +167,10 @@ public:
   bool empty() const { return rep.empty(); }
   void swap(self& hs) { rep.swap(hs.rep); }
 #ifndef __BORLANDC__
+#if !defined(_MSC_VER) || _MSC_VER < 1600
   friend bool operator==VCL_NULL_TMPL_ARGS(const hash_map<Key,T,HashFcn,EqualKey,Alloc>&,
                          const hash_map<Key,T,HashFcn,EqualKey,Alloc>&);
+#endif
 #endif
   iterator begin() { return rep.begin(); }
   iterator end() { return rep.end(); }

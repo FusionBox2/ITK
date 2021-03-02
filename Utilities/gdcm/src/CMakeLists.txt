@@ -24,7 +24,11 @@ SET(libgdcm_la_SOURCES
    gdcmDicomDirVisit.cxx
    gdcmDicomDirSerie.cxx
    gdcmDicomDirStudy.cxx
-   gdcmDict.cxx
+   
+### commented to avoid conflicts with GDCM 2.0.10 ###
+   #gdcmDict.cxx
+###-------------------------------------###
+   
    gdcmDictEntry.cxx
    gdcmDictGroupName.cxx
    gdcmDictSet.cxx
@@ -36,7 +40,7 @@ SET(libgdcm_la_SOURCES
    gdcmElementSet.cxx
    gdcmException.cxx
    gdcmFileHelper.cxx
-   gdcmGlobal.cxx
+   #gdcmGlobal.cxx
    gdcmFile.cxx
    gdcmJPEGFragment.cxx
    gdcmJPEGFragmentsInfo.cxx

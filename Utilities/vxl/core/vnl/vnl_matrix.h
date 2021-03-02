@@ -23,8 +23,8 @@
 # undef ERROR_CHECKING
 #endif
 
-export template <class T> class vnl_vector;
-export template <class T> class vnl_matrix;
+_vcl_export template <class T> class vnl_vector;
+_vcl_export template <class T> class vnl_matrix;
 
 //--------------------------------------------------------------------------------
 

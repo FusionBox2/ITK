@@ -33,7 +33,7 @@ template <class T> vnl_vector<T> operator*(vnl_diag_matrix<T> const&, vnl_vector
 //  operations (currently *, + and -) are overloaded to use more efficient
 //  algorithms.
 
-export
+_vcl_export
 template <class T>
 class vnl_diag_matrix
 {

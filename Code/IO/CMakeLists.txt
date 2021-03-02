@@ -18,9 +18,13 @@ SET(ITKIO_SRCS
   itkDICOMImageIO2Factory.cxx
   itkDICOMSeriesFileNames.cxx
   itkDicomImageIOFactory.cxx
-  itkGDCMImageIO.cxx
-  itkGDCMImageIOFactory.cxx
-  itkGDCMSeriesFileNames.cxx
+  
+### commented to avoid conflicts with GDCM 2.0.10 ###
+  #itkGDCMImageIO.cxx
+  #itkGDCMImageIOFactory.cxx
+  #itkGDCMSeriesFileNames.cxx
+###-------------------------------------###
+  
   itkGE4ImageIO.cxx
   itkGE4ImageIOFactory.cxx
   itkGE5ImageIO.cxx
@@ -72,7 +76,7 @@ ITKNrrdIO
 itkjpeg8
 itkjpeg12
 itkjpeg16
-${ITK_GDCM_LIBRARIES}
+#${ITK_GDCM_LIBRARIES}
 ${ITK_PNG_LIBRARIES}
 ${ITK_ZLIB_LIBRARIES}
 ${ITK_TIFF_LIBRARIES}

@@ -79,7 +79,7 @@ bool vnl_symmetric_eigensystem_compute(vnl_matrix<double> const & A,
 
 //: Computes and stores the eigensystem decomposition of a symmetric matrix.
 
-export template <class T>
+_vcl_export template <class T>
 class vnl_symmetric_eigensystem
 {
  public:
