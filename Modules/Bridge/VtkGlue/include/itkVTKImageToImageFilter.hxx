@@ -57,7 +57,7 @@ VTKImageToImageFilter<TOutputImage>::VTKImageToImageFilter()
 template <typename TOutputImage>
 VTKImageToImageFilter<TOutputImage>::~VTKImageToImageFilter()
 {
-  if (m_Exporter)
+  if (m_Exporter.GetPointer())
   {
     m_Exporter->Delete();
     m_Exporter = nullptr;
